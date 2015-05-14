@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapred>
+    <!-- profile -->
+    <baseId>9a5c9949770298175dce22d77adac733</baseId>
+    <projectId>2307</projectId>
+    <resourceName>user_day_o2o</resourceName>
+    <idePath>工作流/feature_mr/user_day_o2o/</idePath>
+
+    <!-- classes -->
+    <jobLauncher>my.group.user_day_o2o.JobLauncher</jobLauncher>
+    <mapper>my.group.user_day_o2o.MyMapper</mapper>
+    <reducer>my.group.user_day_o2o.MyReducer</reducer>
+    <!--
+    <combiner>my.group.user_day_o2o.MyCombiner</combiner>
+    -->
+
+    <!--task-->
+    <mapOutputKey>user_id:bigint,labelday:bigint</mapOutputKey>
+    <mapOutputValue>u_bro:bigint,u_fav:bigint,u_cart:bigint,u_buy:bigint,geohash:string,curday:bigint,curhour:bigint</mapOutputValue>
+    <outputKeySortColumns>user_id,labelday</outputKeySortColumns>
+    <outputKeySortOrders>ASC,ASC</outputKeySortOrders>
+    <outputGroupingColumns>user_id,labelday</outputGroupingColumns>
+    <!--
+    <numReduceTask>8</numReduceTask>
+    <memoryForMapTask>2048</memoryForMapTask>
+    <memoryForReduceTask>2048</memoryForReduceTask>
+    -->
+
+    <!-- tables -->
+    <inputTables>
+        <table>
+            <name>recommend_train_user_o2o</name>
+        </table>
+    </inputTables>
+    <outputTable>
+        <name>feats_user_day_o2o</name>
+    </outputTable>
+</mapred>

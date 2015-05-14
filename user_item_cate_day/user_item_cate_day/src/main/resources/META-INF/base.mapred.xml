@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapred>
+    <!-- profile -->
+    <baseId>9a5c9949770298175dce22d77adac733</baseId>
+    <projectId>2307</projectId>
+    <resourceName>user_item_cate_day</resourceName>
+    <idePath>工作流/feature_mr/user_item_cate_day/</idePath>
+
+    <!-- classes -->
+    <jobLauncher>my.group.user_item_cate_day.JobLauncher</jobLauncher>
+    <mapper>my.group.user_item_cate_day.MyMapper</mapper>
+    <reducer>my.group.user_item_cate_day.MyReducer</reducer>
+    <!--
+    <combiner>my.group.user_item_cate_day.MyCombiner</combiner>
+    -->
+
+    <!--task-->
+    <mapOutputKey>user_id:bigint,item_id:bigint,cate_id:bigint,labelday:bigint</mapOutputKey>
+    <mapOutputValue>ui_bro:bigint,ui_fav:bigint,ui_cart:bigint,ui_buy:bigint,geohash:string,curday:bigint,curhour:bigint,ui_label_buy:bigint</mapOutputValue>
+    <outputKeySortColumns>user_id,item_id,cate_id,labelday</outputKeySortColumns>
+    <outputKeySortOrders>ASC,ASC,ASC,ASC</outputKeySortOrders>
+    <outputGroupingColumns>user_id,item_id,cate_id,labelday</outputGroupingColumns>
+    <!--
+    <partitionColumns>col1,col2</partitionColumns>
+    <outputKeySortColumns>col1,col2</outputKeySortColumns>
+    <outputKeySortOrders>ASC,DESC</outputKeySortOrders>
+    <outputGroupingColumns>col1,col2</outputGroupingColumns>
+    <numReduceTask>8</numReduceTask>
+    <memoryForMapTask>2048</memoryForMapTask>
+    <memoryForReduceTask>2048</memoryForReduceTask>
+    -->
+
+    <!-- tables -->
+    <inputTables>
+        <table>
+            <name>recommend_train_user</name>
+        </table>
+    </inputTables>
+    <outputTable>
+        <name>feats_user_item_cate_day</name>
+    </outputTable>
+</mapred>
