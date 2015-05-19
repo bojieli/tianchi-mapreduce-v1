@@ -164,13 +164,13 @@ public class MyReducer implements Reducer {
     	result.setBigint("isnotdouble12buy", isdouble12buy ? 0L : 1L);
     	
     	result.setDouble("isnotdouble12buy_ui_bro_decay_cnt", 
-    			isdouble12buy ? bro_decay_cnt : 0d);
+    			isdouble12buy ? 0d : bro_decay_cnt);
     	result.setDouble("isnotdouble12buy_ui_fav_decay_cnt", 
-    			isdouble12buy ? fav_decay_cnt : 0d);
+    			isdouble12buy ? 0d : fav_decay_cnt);
     	result.setDouble("isnotdouble12buy_ui_cart_decay_cnt", 
-    			isdouble12buy ? cart_decay_cnt : 0d);
+    			isdouble12buy ? 0d : cart_decay_cnt);
     	result.setDouble("isnotdouble12buy_ui_buy_decay_cnt", 
-    			isdouble12buy ? buy_decay_cnt : 0d);
+    			isdouble12buy ? 0d : buy_decay_cnt);
     	
     	result.setBigint("ui_cart_cnt", cart_cnt);
     	
