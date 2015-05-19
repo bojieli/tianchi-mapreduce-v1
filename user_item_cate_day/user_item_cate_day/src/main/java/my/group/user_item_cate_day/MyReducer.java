@@ -38,6 +38,7 @@ public class MyReducer implements Reducer {
     	
     	boolean isdouble12buy = false;
     	
+    	long cart_cnt = 0L;
     	
     	//label flag
     	boolean label = false;
@@ -58,6 +59,8 @@ public class MyReducer implements Reducer {
     		fav_decay_cnt += fav * decay(idays, labelday, fav_type) * double12(idays, fav_type);
     		cart_decay_cnt += cart * decay(idays, labelday, cart_type) * double12(idays, cart_type);
     		buy_decay_cnt += buy * decay(idays, labelday, buy_type) * double12(idays, buy_type);
+    		
+    		cart_cnt += cart;
     		
     		int daygap = labelday - idays; 
     		
@@ -115,6 +118,7 @@ public class MyReducer implements Reducer {
     	result.setDouble("isdouble12buy_ui_cart_decay_cnt", isdouble12buy ? cart_decay_cnt : 0d);
     	result.setDouble("isdouble12buy_ui_buy_decay_cnt", isdouble12buy ? buy_decay_cnt : 0d);
     	
+    	result.setBigint("ui_cart_cnt", cart_cnt);
     	
     	//output label
     	result.setBigint("label", label? 1L : 0L);

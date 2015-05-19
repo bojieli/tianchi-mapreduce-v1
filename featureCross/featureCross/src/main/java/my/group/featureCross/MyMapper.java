@@ -33,6 +33,9 @@ public class MyMapper implements Mapper {
     	value.setDouble("ui_cart_decay_cnt", record.getDouble("ui_cart_decay_cnt"));
     	value.setDouble("ui_buy_decay_cnt", record.getDouble("ui_buy_decay_cnt"));
     	
+    	value.setDouble("ratio_buy_cart", record.getDouble("ratio_buy_cart"));
+    	value.setBigint("ui_cart_cnt", record.getBigint("ui_cart_cnt"));
+    	
     	context.write(key, value);
     	
     	context.progress();

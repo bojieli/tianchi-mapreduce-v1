@@ -68,9 +68,9 @@ public class MyReducer implements Reducer {
     	result.setDouble("uc_buy_decay_cnt", buy_decay_cnt);
     	
     	result.setBigint("isbuycatebefore", buy_decay_cnt > 0d? 1L : 0L);
-    	result.setBigint("isbuycate24h", isbuycate24h ? 1L : 0L);
-    	result.setBigint("isbuycate3d", isbuycate3d ? 1L : 0L);
-    	result.setBigint("isbuycate5d", isbuycate5d ? 1L : 0L);
+    	result.setBigint("isnotbuycate24h", isbuycate24h ? 0L : 1L);
+    	result.setBigint("isnotbuycate3d", isbuycate3d ? 0L : 1L);
+    	result.setBigint("isnotbuycate5d", isbuycate5d ? 0L : 1L);
     	
     	
     	//filter non-interactive

@@ -25,7 +25,11 @@ public class MyReducer implements Reducer {
     	//cross features  	
         long iscartnobuy6h = 0L, isbuycate24h = 0L, isdouble12buy = 0L;
         double ui_bro_decay_cnt = 0d, ui_fav_decay_cnt = 0d, ui_cart_decay_cnt = 0d, ui_buy_decay_cnt = 0d;
-    	while(values.hasNext())
+    	
+        long ui_cart_cnt = 0L;
+        double ratio_buy_cart = 0d;
+        
+        while(values.hasNext())
         {
         	Record val = values.next();
         	
@@ -37,6 +41,9 @@ public class MyReducer implements Reducer {
         	ui_fav_decay_cnt = val.getDouble("ui_fav_decay_cnt");
         	ui_cart_decay_cnt = val.getDouble("ui_cart_decay_cnt");
         	ui_buy_decay_cnt = val.getDouble("ui_buy_decay_cnt");
+        	
+        	ratio_buy_cart = val.getDouble("ratio_buy_cart");
+        	ui_cart_cnt = val.getBigint("ui_cart_cnt");
         }
     	
     	result.setBigint("iscartnobuy6h_isbuycate24h", iscartnobuy6h * isbuycate24h);
@@ -45,6 +52,7 @@ public class MyReducer implements Reducer {
     	result.setDouble("isdouble12buy_ui_cart_decay_cnt", isdouble12buy * ui_cart_decay_cnt);
     	result.setDouble("isdouble12buy_ui_buy_decay_cnt", isdouble12buy * ui_buy_decay_cnt);
     	
+    	result.setDouble("ratio_buy_cart_ui_cart_cnt", ratio_buy_cart * ui_cart_cnt);
     	
         context.write(result);
         

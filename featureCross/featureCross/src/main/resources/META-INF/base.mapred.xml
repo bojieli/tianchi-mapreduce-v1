@@ -16,7 +16,7 @@
 
     <!--task-->
     <mapOutputKey>user_id:bigint,item_id:bigint,labelday:bigint</mapOutputKey>
-    <mapOutputValue>iscartnobuy6h:bigint,isbuycate24h:bigint,isdouble12buy:bigint,ui_bro_decay_cnt:double,ui_fav_decay_cnt:double,ui_cart_decay_cnt:double,ui_buy_decay_cnt:double</mapOutputValue>
+    <mapOutputValue>iscartnobuy6h:bigint,isbuycate24h:bigint,isdouble12buy:bigint,ui_bro_decay_cnt:double,ui_fav_decay_cnt:double,ui_cart_decay_cnt:double,ui_buy_decay_cnt:double,ratio_buy_cart:double,ui_cart_cnt:bigint</mapOutputValue>
     <outputKeySortColumns>user_id,item_id,labelday</outputKeySortColumns>
     <outputKeySortOrders>ASC,ASC,ASC</outputKeySortOrders>
     <outputGroupingColumns>user_id,item_id,labelday</outputGroupingColumns>
@@ -33,10 +33,10 @@
     <!-- tables -->
     <inputTables>
         <table>
-            <name>feats_test</name>
+            <name>feats_join_o2o</name>
         </table>
     </inputTables>
     <outputTable>
-        <name>wordcount_out</name>
+        <name>feats_cross_o2o</name>
     </outputTable>
 </mapred>

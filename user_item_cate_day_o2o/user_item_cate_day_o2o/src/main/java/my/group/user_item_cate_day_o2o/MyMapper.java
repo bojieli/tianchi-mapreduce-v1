@@ -13,15 +13,12 @@ public class MyMapper implements Mapper {
     private Record value;
     private Record value_label;
     private final int day_cnt = 32;
-    private int windowsize, slidedays;
+    private final int windowsize = 10, slidedays = 17;
 
     public void setup(TaskContext context) throws IOException {
     	key = context.createMapOutputKeyRecord();
     	value = context.createMapOutputValueRecord();
     	value_label = context.createMapOutputValueRecord();
-    	
-    	windowsize = 10;
-    	slidedays = 17;
     }
     
     //initialize values
